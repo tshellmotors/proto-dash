@@ -6,10 +6,7 @@ const LeftPanel = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setDate(new Date());
-    }, 60 * 1000);
-    return () => {
-      clearInterval(timer); // Return a funtion to clear the timer so that it will stop being called on unmount
-    };
+    }, 1000);
   }, []);
 
   const day = today.toLocaleDateString(locale, { weekday: "long" });
@@ -17,18 +14,19 @@ const LeftPanel = () => {
     month: "long",
   })}\n\n`;
 
-  const hour = today.getHours();
+  const hour = today.getHours(locale, { hour12: true });
+  const minute = today.getMinutes();
+  const seconds = today.getSeconds();
 
   const time = today.toLocaleTimeString(locale, {
     hour: "numeric",
     hour12: true,
-    minute: "numeric",
   });
 
   return (
     <div className="LeftPanel">
       <div className="time">
-        {time} <br /> {date}
+        {time} : {minute} : {seconds} <br /> {date}
       </div>
 
       <div className="SpeedData">
