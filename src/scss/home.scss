@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap");
+
+body {
+  background: #0e1422;
+  font-family: "Inter", sans-serif;
+  color: #11bfba;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+
+  & .LeftPanel {
+    display: flex;
+    flex-direction: column;
+    flex: 0.35;
+    text-align: center;
+    padding: 2rem;
+    background: #0c111e;
+
+    & .time {
+      margin-bottom: 64px;
+    }
+
+    & .SpeedData {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid #df104a;
+      padding-bottom: 48px;
+
+      & > span {
+        &.kmph {
+          font-size: 128px;
+          font-weight: bold;
+          line-height: 100px;
+
+          & + span {
+            font-size: 64px;
+            font-weight: lighter;
+            margin-bottom: 32px;
+          }
+        }
+        &.trueKmph {
+          font-size: 32px;
+        }
+      }
+    }
+  }
+  & .RightPanel {
+    display: flex;
+    flex: 1;
+    padding: 2rem;
+    min-height: 100vh;
+
+    & .InfoWrapper {
+      display: flex;
+      flex: 1;
+
+      & .InfoPill {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+
+        & .label {
+          font-weight: normal;
+          margin-bottom: 8px;
+          opacity: 0.8;
+        }
+        & .data {
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+}
