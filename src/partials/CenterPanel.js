@@ -31,6 +31,7 @@ const InfoPill = ({ label, value }) => {
       start: 0.1,
       end: 0.5,
     },
+    color: "#11bfba",
   };
   return (
     <div className="InfoPill">
