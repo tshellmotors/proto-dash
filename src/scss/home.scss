@@ -31,7 +31,7 @@ body {
     & .SpeedData {
       display: flex;
       flex-direction: column;
-      border-bottom: 1px solid #df104a;
+      border-bottom: 1px solid rgba(#11bfba, 0.1);
       padding-bottom: 48px;
 
       & > span {
@@ -55,6 +55,31 @@ body {
     & .VehPos {
       display: flex;
       flex: 1;
+      position: relative;
+      flex-direction: column;
+
+      & .VehPosLabel {
+        display: flex;
+        flex: 1;
+        padding: 16px;
+        position: absolute;
+        width: 100%;
+
+        & > dl {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+
+          & dt {
+            margin: 0;
+            padding: 0 0 4px;
+          }
+          & dd {
+            margin: 0;
+            padding: 0;
+          }
+        }
+      }
     }
   }
   & .RightPanel {
