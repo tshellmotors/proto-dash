@@ -24,6 +24,7 @@ const InfoPill = ({ label, value }) => {
     padding: "auto",
     xField: "Date",
     yField: "scales",
+    autoFit: true,
     xAxis: {
       tickCount: 5,
     },
@@ -32,6 +33,7 @@ const InfoPill = ({ label, value }) => {
       end: 0.5,
     },
     color: "#11bfba",
+    theme: "dark",
   };
   return (
     <div className="InfoPill">
