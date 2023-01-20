@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import VehPos from "./VehPos";
 
 const LeftPanel = () => {
   const locale = "en";
@@ -26,7 +25,7 @@ const LeftPanel = () => {
 
   return (
     <div className="LeftPanel">
-      <div className="time">
+      <div className="info top">
         {time} : {minute} : {seconds} <br /> {date}
       </div>
 
@@ -34,11 +33,15 @@ const LeftPanel = () => {
         <span className="kmph">000</span>
         <span>km/h</span>
 
-        <span className="trueKmph">000 km/h</span>
+        <span className="trueKmph">000</span>
         <span>True Speed</span>
       </div>
 
-      <VehPos />
+      <div className="info bottom">
+        Distance Travelled
+        <br />
+        <strong>500 meters</strong>
+      </div>
     </div>
   );
 };

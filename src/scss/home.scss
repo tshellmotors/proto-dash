@@ -24,15 +24,22 @@ body {
     padding: 2rem;
     background: #0c111e;
 
-    & .time {
-      margin-bottom: 64px;
+    & .info {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      flex-direction: column;
+
+      &.top {
+      }
+      &.bottom {
+        justify-content: flex-end;
+      }
     }
 
     & .SpeedData {
       display: flex;
       flex-direction: column;
-      border-bottom: 1px solid rgba(#11bfba, 0.1);
-      padding-bottom: 48px;
 
       & > span {
         &.kmph {
@@ -51,6 +58,44 @@ body {
         }
       }
     }
+  }
+  & .CenterPanel {
+    display: flex;
+    flex: 1;
+    padding: 2rem;
+    height: 100vh;
+    overflow: auto;
+
+    & .InfoWrapper {
+      display: flex;
+      flex-direction: column;
+      flex: 0.96;
+
+      & .InfoPill {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 32px;
+
+        & .label {
+          font-weight: normal;
+          margin-bottom: 16px;
+          opacity: 0.8;
+        }
+        & .data {
+          margin-bottom: 4px;
+        }
+        & .graph {
+        }
+      }
+    }
+  }
+  & .RightPanel {
+    display: flex;
+    flex-direction: column;
+    flex: 0.8;
+    text-align: center;
+    padding: 2rem;
+    background: #0c111e;
 
     & .VehPos {
       display: flex;
@@ -78,32 +123,6 @@ body {
             margin: 0;
             padding: 0;
           }
-        }
-      }
-    }
-  }
-  & .RightPanel {
-    display: flex;
-    flex: 1;
-    padding: 2rem;
-    min-height: 100vh;
-
-    & .InfoWrapper {
-      display: flex;
-      flex: 1;
-
-      & .InfoPill {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-
-        & .label {
-          font-weight: normal;
-          margin-bottom: 8px;
-          opacity: 0.8;
-        }
-        & .data {
-          margin-bottom: 4px;
         }
       }
     }
