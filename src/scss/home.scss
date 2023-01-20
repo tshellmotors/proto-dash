@@ -51,6 +51,11 @@ body {
         }
       }
     }
+
+    & .VehPos {
+      display: flex;
+      flex: 1;
+    }
   }
   & .RightPanel {
     display: flex;

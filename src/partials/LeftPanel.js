@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
+import VehPos from "./VehPos";
 
 const LeftPanel = () => {
   const locale = "en";
   const [today, setDate] = useState(new Date());
   useEffect(() => {
-    const timer = setInterval(() => {
-      setDate(new Date());
-    }, 1000);
+    // const timer = setInterval(() => {
+    //   setDate(new Date());
+    // }, 1000);
   }, []);
 
   const day = today.toLocaleDateString(locale, { weekday: "long" });
@@ -14,7 +15,7 @@ const LeftPanel = () => {
     month: "long",
   })}\n\n`;
 
-  const hour = today.getHours(locale, { hour12: true });
+  // const hour = today.getHours(locale, { hour12: true });
   const minute = today.getMinutes();
   const seconds = today.getSeconds();
 
@@ -36,6 +37,8 @@ const LeftPanel = () => {
         <span className="trueKmph">000 km/h</span>
         <span>True Speed</span>
       </div>
+
+      <VehPos />
     </div>
   );
 };
