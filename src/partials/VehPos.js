@@ -1,10 +1,9 @@
-import React, { useRef } from "react";
+import React from "react";
 // import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import {
   Gltf,
-  OrbitControls,
-  View,
+  // OrbitControls,
   PerspectiveCamera,
   Segment,
   Segments,

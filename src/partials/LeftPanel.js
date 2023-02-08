@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 
 const LeftPanel = () => {
   const locale = "en";
-  const [today, setDate] = useState(new Date());
+  // const [today, setDate] = useState(new Date());
+  const [today] = useState(new Date());
   useEffect(() => {
     // const timer = setInterval(() => {
     //   setDate(new Date());
