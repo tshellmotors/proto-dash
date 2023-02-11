@@ -3,7 +3,7 @@ import React from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Gltf,
-  OrbitControls,
+  // OrbitControls,
   PerspectiveCamera,
   Segment,
   Segments,
@@ -32,7 +32,7 @@ const VehPos = ({ posData }) => {
   const yaw = sensorData[2];
 
   const new_min = 0;
-  const new_max = 6;
+  const new_max = 6.3;
   const old_min = 0;
   const old_max = 360;
 
@@ -68,7 +68,7 @@ const VehPos = ({ posData }) => {
 
         {/* <mesh position={[-1, -2, 0]} rotation={[25.6, -15, 0]}> */}
         <mesh>
-          <Mesh rot={[calcVal(-roll), calcVal(yaw), calcVal(pitch)]} />
+          <Mesh rot={[calcVal(roll), calcVal(-yaw), calcVal(pitch)]} />
         </mesh>
       </Canvas>
     </div>
