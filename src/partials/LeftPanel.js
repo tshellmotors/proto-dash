@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 
+// import { SerialPort } from "serialport";
+// const serialport = new SerialPort({ path: "COM3", baudRate: 115200 });
+// serialport.write("ROBOT POWER ON");
+
 const LeftPanel = () => {
   const locale = "en";
   // const [today, setDate] = useState(new Date());

@@ -3,7 +3,7 @@ import React from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Gltf,
-  // OrbitControls,
+  OrbitControls,
   PerspectiveCamera,
   Segment,
   Segments,
@@ -25,21 +25,25 @@ function Mesh({ rot }) {
   );
 }
 
-const VehPos = () => {
+const VehPos = ({ posData }) => {
+  const sensorData = posData.split()[0].split(",");
+  const roll = sensorData[0];
+  const pitch = sensorData[1];
+  const yaw = sensorData[2];
   return (
     <div className="VehPos">
       <div className="VehPosLabel">
         <dl>
           <dt>Yaw</dt>
-          <dd>0 deg</dd>
+          <dd>{yaw} deg</dd>
         </dl>
         <dl>
           <dt>Pitch</dt>
-          <dd>0 deg</dd>
+          <dd>{pitch} deg</dd>
         </dl>
         <dl>
           <dt>Roll</dt>
-          <dd>0 deg</dd>
+          <dd>{roll} deg</dd>
         </dl>
       </div>
       <Canvas>
@@ -50,7 +54,8 @@ const VehPos = () => {
         <spotLight position={[10, -15, -10]} angle={0.9} />
 
         <mesh position={[-1, -2, 0]} rotation={[25.6, -15, 0]}>
-          <Mesh rot={[0, 0, 0]} />
+          {/* 1 = 45deg */}
+          <Mesh rot={[pitch, roll, yaw]} />
         </mesh>
       </Canvas>
     </div>

@@ -1,10 +1,10 @@
 import React from "react";
 import VehPos from "./VehPos";
 
-const RightPanel = () => {
+const RightPanel = ({ posData }) => {
   return (
     <div className="RightPanel">
-      <VehPos />
+      <VehPos posData={posData} />
     </div>
   );
 };
