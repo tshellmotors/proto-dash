@@ -68,7 +68,7 @@ const VehPos = ({ posData }) => {
 
         {/* <mesh position={[-1, -2, 0]} rotation={[25.6, -15, 0]}> */}
         <mesh>
-          <Mesh rot={[calcVal(roll), calcVal(yaw), calcVal(pitch)]} />
+          <Mesh rot={[calcVal(-roll), calcVal(yaw), calcVal(pitch)]} />
         </mesh>
       </Canvas>
     </div>
