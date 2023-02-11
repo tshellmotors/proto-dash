@@ -32,7 +32,7 @@ const VehPos = ({ posData }) => {
   const yaw = sensorData[2];
 
   const new_min = 0;
-  const new_max = 8;
+  const new_max = 6;
   const old_min = 0;
   const old_max = 360;
 
