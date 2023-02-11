@@ -30,6 +30,19 @@ const VehPos = ({ posData }) => {
   const roll = sensorData[0];
   const pitch = sensorData[1];
   const yaw = sensorData[2];
+
+  const new_min = 0;
+  const new_max = 8;
+  const old_min = 0;
+  const old_max = 360;
+
+  const calcVal = (val) => {
+    let new_value;
+    new_value =
+      ((val - old_min) / (old_max - old_min)) * (new_max - new_min) + new_min;
+    return new_value;
+  };
+
   return (
     <div className="VehPos">
       <div className="VehPosLabel">
@@ -53,9 +66,9 @@ const VehPos = ({ posData }) => {
         <spotLight position={[-10, 15, 10]} angle={0.9} />
         <spotLight position={[10, -15, -10]} angle={0.9} />
 
-        <mesh position={[-1, -2, 0]} rotation={[25.6, -15, 0]}>
-          {/* 1 = 45deg */}
-          <Mesh rot={[pitch, roll, yaw]} />
+        {/* <mesh position={[-1, -2, 0]} rotation={[25.6, -15, 0]}> */}
+        <mesh>
+          <Mesh rot={[calcVal(roll), calcVal(yaw), calcVal(pitch)]} />
         </mesh>
       </Canvas>
     </div>
