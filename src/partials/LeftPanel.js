@@ -45,7 +45,7 @@ const LeftPanel = () => {
       <div className="info bottom">
         Distance Travelled
         <br />
-        <strong>500 meters</strong>
+        <strong>600 meters</strong>
       </div>
     </div>
   );

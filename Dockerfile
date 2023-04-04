@@ -1,15 +1,13 @@
-FROM node:19-alpine3.16
+#Stage 1
+FROM node:18.15-buster
 
-WORKDIR /app
+WORKDIR /app2
 
-COPY package*.json ./
-
-COPY server/package*.json ./
+COPY package.json package.json
+COPY package-lock.json package-lock.json
 
 RUN npm install
 
 COPY . .
 
-EXPOSE 3000
-
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]

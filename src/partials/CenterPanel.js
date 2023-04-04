@@ -32,7 +32,7 @@ const InfoPill = ({ label, value }) => {
       start: 0.1,
       end: 0.5,
     },
-    color: "#fbbfba",
+    color: "16f6ff",
     theme: "dark",
   };
   return (
