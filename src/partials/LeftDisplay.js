@@ -30,7 +30,7 @@ const LeftDisplay = () => {
   return (
     <div className="LeftDisplay">
         <div style={{left, top, position:"absolute", marginLeft:"50px", marginTop:"-10px"}}>abcd</div>
-        <input type="range" min="0" max="360" onChange={handleSlider}></input>
+        <input type="range" min="0" max="360" step={100} onChange={handleSlider}></input>
 
         <div className="box" id="box" style={{transform: `rotate(${deg ? deg : 0}deg)`}}></div>
     </div>
