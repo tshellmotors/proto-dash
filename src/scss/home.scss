@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap");
 
 body {
-  background: #0e1422;
+  background: #291F36;
   font-family: "Inter", sans-serif;
   color: #11bfba;
   font-size: 16px;
@@ -129,5 +129,21 @@ body {
         }
       }
     }
+  }
+}
+
+.LeftDisplay{
+  position: relative;
+
+  & .box{
+    position: absolute;
+    top: 500px;
+    left: 500px;
+    background: white;
+    width: 1px;
+    height: 1px;
+    color: #0c111e;
+    transform-origin: 100px 100px;
+    border-radius: 100%;
   }
 }
