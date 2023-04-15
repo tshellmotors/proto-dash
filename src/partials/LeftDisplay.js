@@ -1,38 +1,102 @@
-import React, { useState, useEffect } from "react";
-// import ReactDOM from "react-dom";
+import React, { useState, useMemo } from "react";
+import Slider from "react-input-slider";
 
-const content = [
-    "abcd",
-    "abcd",
-    "abcd",
-    "abcd",
-  ]
 
 const LeftDisplay = () => {
-    const [deg, setDeg] = useState();
-    const [left, setLeft] = useState();
-    const [top, setTop] = useState();
+  const [angle, setAngle] = useState(0);
 
-    const handleSlider = (index) => {
+  const handleChange = (value) => {
+    setAngle(value.x);
+  };
 
-        setDeg(index.target.value);
-        
-        const leftPos = document.querySelector('#box').getBoundingClientRect().left;
-        const topPos = document.querySelector('#box').getBoundingClientRect().top;
+  const menuItemStyle = (rotation) => ({
+    transform: `rotate(${rotation}deg)`,
+  });
 
-        console.log(topPos, leftPos);
+  // const menuItems = Array.from({ length: 20 }, (_, i) => `Item ${i + 1}`);
 
-        
-        setTop(topPos);
-        setLeft(leftPos);
-    }
+  const menuItems = [
+    { name: "Lights", data: "ON" },
+    { name: "Vehicle Position", data: "Data" },
+    { name: "Trip Meter", data: "Data" },
+    { name: "Locks", data: "Data" },
+    { name: "Display", data: "Data" },
+    { name: "Driving", data: "Data" },
+    { name: "Autopilot", data: "Data" },
+    { name: "Safety & Security", data: "Data" },
+    { name: "Service", data: "Data" },
+    { name: "Software", data: "Data" },
+    { name: "Driving Mode / Torque", data: "Data" },
+    { name: "SoH", data: "No issues found" },
+    { name: "AC", data: "61 deg / OFF" },
+  ];
+
+  const visibleItems = menuItems.length;
+  const anglePerItem = 360 / menuItems.length;
+
+  const activeIndex = useMemo(() => {
+    const index = Math.round(((360 - angle) % 360) / anglePerItem);
+    return (index + Math.ceil(visibleItems - 1) - 1) % menuItems.length;
+  }, [angle, anglePerItem, menuItems.length]);
+
+  const firstOpa = (index) => {
+    const distance = Math.min(
+      Math.abs(index - activeIndex),
+      menuItems.length - Math.abs(index - activeIndex)
+    );
+    return distance == 1;
+  };
+  const secondOpa = (index) => {
+    const distance = Math.min(
+      Math.abs(index - activeIndex),
+      menuItems.length - Math.abs(index - activeIndex)
+    );
+    return distance == 2;
+  };
+  const thirdOpa = (index) => {
+    const distance = Math.min(
+      Math.abs(index - activeIndex),
+      menuItems.length - Math.abs(index - activeIndex)
+    );
+    return distance == 3;
+  };
 
   return (
-    <div className="LeftDisplay">
-        <div style={{left, top, position:"absolute", marginLeft:"50px", marginTop:"-10px"}}>abcd</div>
-        <input type="range" min="0" max="360" step={100} onChange={handleSlider}></input>
+    <div className="rotatable-menu">
+      <ul className="menu" style={menuItemStyle(angle)}>
+        {menuItems.map((item, index) => (
+          console.log(item),
+          <li
+            key={index}
+            className={`menu-item ${index === activeIndex ? "active" : ""} ${
+              firstOpa(index) ? "firstOpa" : ""
+            } ${secondOpa(index) ? "secondOpa" : ""} ${
+              thirdOpa(index) ? "thirdOpa" : ""
+            }`}
+            style={menuItemStyle(anglePerItem * index)}
+          >
+            <span
+              className="menu-item-group"
+              style={menuItemStyle(-angle - anglePerItem * index)}
+            >
+              <span className="menu-item-title">{item.name}</span>
+              <span className="menu-item-text">{item.data}</span>
+            </span>
+          </li>
+        ))}
 
-        <div className="box" id="box" style={{transform: `rotate(${deg ? deg : 0}deg)`}}></div>
+        <span>abcd</span>
+      </ul>
+
+      <div className="slider">
+        <Slider
+          axis="x"
+          x={angle}
+          xmin={0}
+          xmax={360}
+          onChange={handleChange}
+        />
+      </div>
     </div>
   );
 };
