@@ -134,6 +134,7 @@ body {
 
 .LeftDisplay{
   position: relative;
+  margin-left: 400px;
 
   & .box{
     position: absolute;
@@ -152,6 +153,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: fixed;
+  left: -535px;
+  top: -42px;
 }
 
 .menu {
@@ -162,6 +166,28 @@ body {
   width: 800px;
   height: 800px;
 
+  & .menu-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 579px;
+    height: 579px;
+    background: #1F1829;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    z-index: -1;
+
+    & img{
+      width: 549px;
+      height: 549px;
+    }
+  }
+
   & .menu-item {
     position: absolute;
     top: 50%;
@@ -169,7 +195,7 @@ body {
     transform-origin: top left;
     white-space: nowrap;
     text-align: center;
-    opacity: .1;
+    opacity: 0;
     color: #F2C5BB;
     font-size: 16px;
   
@@ -186,7 +212,7 @@ body {
     & .menu-item-group {
       display: flex;
       transform-origin: center left;
-      margin: 200px;
+      margin: 220px;
       flex-direction: column;
       align-items: flex-start;
     
@@ -209,7 +235,25 @@ body {
   }
 }
 
-
+.menuCenterLine{
+  height: 2px;
+  width: 70px;
+  background: #F2C5BB;
+  display: inline-block;
+  position: fixed;
+  left: 70px;
+  top: 50%;
+  z-index: 1;
+}
+.menuShade{
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 145px;
+  background: linear-gradient(-90deg, rgba(41, 31, 54, 0) 0%, #291F36 94.44%);
+}
 
 .slider {
   margin-top: 20px;

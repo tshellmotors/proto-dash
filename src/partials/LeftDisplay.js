@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import Slider from "react-input-slider";
-
+import Stripes from "../images/stripes.png";
 
 const LeftDisplay = () => {
   const [angle, setAngle] = useState(0);
@@ -44,49 +44,59 @@ const LeftDisplay = () => {
       Math.abs(index - activeIndex),
       menuItems.length - Math.abs(index - activeIndex)
     );
-    return distance == 1;
+    return distance === 1;
   };
   const secondOpa = (index) => {
     const distance = Math.min(
       Math.abs(index - activeIndex),
       menuItems.length - Math.abs(index - activeIndex)
     );
-    return distance == 2;
+    return distance === 2;
   };
   const thirdOpa = (index) => {
     const distance = Math.min(
       Math.abs(index - activeIndex),
       menuItems.length - Math.abs(index - activeIndex)
     );
-    return distance == 3;
+    return distance === 3;
   };
 
   return (
-    <div className="rotatable-menu">
-      <ul className="menu" style={menuItemStyle(angle)}>
-        {menuItems.map((item, index) => (
-          console.log(item),
-          <li
-            key={index}
-            className={`menu-item ${index === activeIndex ? "active" : ""} ${
-              firstOpa(index) ? "firstOpa" : ""
-            } ${secondOpa(index) ? "secondOpa" : ""} ${
-              thirdOpa(index) ? "thirdOpa" : ""
-            }`}
-            style={menuItemStyle(anglePerItem * index)}
-          >
-            <span
-              className="menu-item-group"
-              style={menuItemStyle(-angle - anglePerItem * index)}
-            >
-              <span className="menu-item-title">{item.name}</span>
-              <span className="menu-item-text">{item.data}</span>
-            </span>
-          </li>
-        ))}
+    <div className="LeftDisplay">
+      <div className="menuShade"></div>
+      <span className="menuCenterLine"></span>
+      <div className="rotatable-menu">
+        <ul className="menu" style={menuItemStyle(angle)}>
+          {menuItems.map(
+            (item, index) => (
+              console.log(item),
+              (
+                <li
+                  key={index}
+                  className={`menu-item ${
+                    index === activeIndex ? "active" : ""
+                  } ${firstOpa(index) ? "firstOpa" : ""} ${
+                    secondOpa(index) ? "secondOpa" : ""
+                  } ${thirdOpa(index) ? "thirdOpa" : ""}`}
+                  style={menuItemStyle(anglePerItem * index)}
+                >
+                  <span
+                    className="menu-item-group"
+                    style={menuItemStyle(-angle - anglePerItem * index)}
+                  >
+                    <span className="menu-item-title">{item.name}</span>
+                    <span className="menu-item-text">{item.data}</span>
+                  </span>
+                </li>
+              )
+            )
+          )}
 
-        <span>abcd</span>
-      </ul>
+          <span className="menu-bg">
+            <img src={Stripes} />
+          </span>
+        </ul>
+      </div>
 
       <div className="slider">
         <Slider
