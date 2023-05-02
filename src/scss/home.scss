@@ -15,6 +15,9 @@ body {
 
 .App {
   display: flex;
+  width: 1280px;
+  height: 800px;
+  position: relative;
 
   & .LeftPanel {
     display: flex;
@@ -242,7 +245,7 @@ body {
   display: inline-block;
   position: fixed;
   left: 70px;
-  top: 50%;
+  top: 356px;
   z-index: 1;
 }
 .menuShade{
